@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>R K Electronics Flowcharts</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #38bdf8;
+            text-align: center;
+        }
+    </style>
+
+    <script type="module">
+        import { generateHTMLWithAllFlows } from './rk-electronics-flowcharts.js';
+
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            flowchart: {
+                padding: 20,
+                nodeSpacing: 50,
+                rankSpacing: 50,
+                curve: 'basis'
+            },
+            themeVariables: {
+                primaryColor: '#1e293b',
+                primaryTextColor: '#fff',
+                lineColor: '#38bdf8',
+                fontSize: '16px',
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.createElement('div');
+            container.className = 'mermaid-container';
+            container.innerHTML = generateHTMLWithAllFlows();
+            document.body.appendChild(container);
+
+            await mermaid.run();
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Flowcharts will be inserted here -->
+</body>
+
+</html>
